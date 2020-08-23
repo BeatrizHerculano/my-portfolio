@@ -5,7 +5,6 @@ import 'package:my_cv/repository/projects_repository.dart';
 import 'package:my_cv/widgets/centralized_circular_progress_indicator.dart';
 import 'package:my_cv/widgets/lecture_card.dart';
 import 'package:my_cv/widgets/portfolio_list_view.dart';
-import 'package:my_cv/widgets/portifolio_card.dart';
 
 class Portfolio extends StatelessWidget {
   @override
