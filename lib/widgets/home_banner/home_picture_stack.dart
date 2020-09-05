@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_cv/widgets/home_banner/home_picture.dart';
 import 'package:my_cv/widgets/home_banner/home_picture_background.dart';
+import 'package:my_cv/widgets/twitch_x_developer/twitch_x_developer.dart';
 
 // ignore: must_be_immutable
 class HomePictureStack extends StatelessWidget {
@@ -31,7 +32,6 @@ class HomePictureStack extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       var height = constraints.maxHeight;
       var width = constraints.maxWidth;
-      print(width);
 
       _calculatePositionWithoutOffset(height, width);
       _calculatePositionWithtOffset();
@@ -54,7 +54,7 @@ class HomePictureStack extends StatelessWidget {
                 child: HomePicture(
                   height: pictureHeight,
                   width: pictureWidth,
-                ))
+                )),
           ],
         ),
       );

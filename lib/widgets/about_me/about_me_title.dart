@@ -8,7 +8,7 @@ class AboutMeTitle extends StatelessWidget {
       "Oi! Eu sou a Beatriz Herculano",
       softWrap: true,
       textAlign: TextAlign.center,
-      style: PinkTextTheme.of(context).headline3,
+      style: PinkTextTheme.of(context).headline2.apply(fontWeightDelta: 3),
     );
     return Container(
       padding: const EdgeInsets.only(bottom: 8),
