@@ -23,19 +23,44 @@ class TwitchxDeveloperState extends State<TwitchxDeveloper> {
         .apply(color: lightBlue, fontWeightDelta: 3);
 
     return LayoutBuilder(builder: (context, constraints) {
+      var height = constraints.maxHeight;
+      var width = constraints.maxWidth;
+
       return AnimatedContainer(
           duration: duration,
           color: colors[showingTwitch],
           width: constraints.maxWidth,
           child: Column(
             children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 50, vertical: 50),
-                child: Text(
-                    "Está curioso como eu sou quando Streamer e como eu sou como Desenvolvedora?",
-                    textAlign: TextAlign.center,
-                    style: titleTheme),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 70, vertical: 50),
+                      child: Text("Streamer x Desenvolvedora",
+                          textAlign: TextAlign.center, style: titleTheme),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 30, horizontal: 50),
+                    child: Transform.scale(
+                      scale: 2,
+                      child: Switch(
+                          activeColor: pink,
+                          activeTrackColor: darkGrey,
+                          inactiveTrackColor: darkGrey,
+                          value: showingTwitch,
+                          onChanged: (value) {
+                            setState(() {
+                              showingTwitch = value;
+                            });
+                          }),
+                    ),
+                  ),
+                ],
               ),
               Text(
                 profiles[showingTwitch],
@@ -44,18 +69,11 @@ class TwitchxDeveloperState extends State<TwitchxDeveloper> {
                     .headline4
                     .apply(color: profileColor[showingTwitch]),
               ),
-              Switch(
-                  activeColor: pink,
-                  activeTrackColor: darkGrey,
-                  inactiveTrackColor: darkGrey,
-                  value: showingTwitch,
-                  onChanged: (value) {
-                    setState(() {
-                      showingTwitch = value;
-                    });
-                  }),
               AnimatedCrossFade(
-                firstChild: Twitch(),
+                firstChild: Twitch(
+                  parentHeight: height,
+                  parentWidth: width,
+                ),
                 secondChild: Developer(),
                 crossFadeState: showingTwitch
                     ? CrossFadeState.showFirst

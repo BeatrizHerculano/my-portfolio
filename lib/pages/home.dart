@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:my_cv/constants/palette.dart';
 import 'package:my_cv/widgets/about_me/about_me_description.dart';
 import 'package:my_cv/widgets/about_me/about_me_title.dart';
-import 'package:my_cv/widgets/showcase_cores.dart';
 import 'package:my_cv/widgets/home_banner/home_banner.dart';
 import 'package:my_cv/widgets/twitch_x_developer/twitch_x_developer.dart';
 
@@ -15,6 +14,8 @@ class HomePage extends StatelessWidget {
       body: LayoutBuilder(builder: (context, constraints) {
         var detailsPadding =
             constraints.maxWidth > 550 ? constraints.maxWidth * 0.2 : 30;
+        var textOrientation =
+            constraints.maxWidth > 550 ? TextAlign.center : TextAlign.left;
         return Container(
           height: constraints.maxHeight,
           child: SingleChildScrollView(
@@ -26,18 +27,20 @@ class HomePage extends StatelessWidget {
                 ),
                 Container(
                   width: constraints.maxWidth,
-                  padding: EdgeInsets.symmetric(horizontal: 30),
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
                   color: darkGrey,
                   child: AboutMeTitle(),
                 ),
                 Container(
                   width: constraints.maxWidth,
                   padding: EdgeInsets.symmetric(
-                    vertical: 50,
+                    vertical: 30,
                     horizontal: detailsPadding,
                   ),
                   color: darkGrey,
-                  child: AboutMeDescription(),
+                  child: AboutMeDescription(
+                    orientation: textOrientation,
+                  ),
                 ),
                 TwitchxDeveloper(),
               ],

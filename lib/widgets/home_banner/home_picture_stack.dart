@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_cv/widgets/home_banner/home_picture.dart';
 import 'package:my_cv/widgets/home_banner/home_picture_background.dart';
-import 'package:my_cv/widgets/twitch_x_developer/twitch_x_developer.dart';
 
 // ignore: must_be_immutable
 class HomePictureStack extends StatelessWidget {

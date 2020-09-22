@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_cv/pages/home.dart';
-import 'package:my_cv/widgets/showcase_cores.dart';
 
 void main() {
   runApp(MyApp());
