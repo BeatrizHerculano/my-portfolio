@@ -3,6 +3,7 @@ import 'package:my_cv/constants/palette.dart';
 import 'package:my_cv/widgets/about_me/about_me_description.dart';
 import 'package:my_cv/widgets/about_me/about_me_title.dart';
 import 'package:my_cv/widgets/home_banner/home_banner.dart';
+import 'package:my_cv/widgets/social_media_grid.dart';
 import 'package:my_cv/widgets/twitch_x_developer/twitch_x_developer.dart';
 
 // TODO: ia uma coisa que acho legal você colocar no seu portfolio é: ultimas atividades, dai vc coloca as API's das coisas que vc usa, como spotify, twitter, github e etc. Quando vc escutar uma musica por exemplo, vai mostrar: {HORARIO} Escutando {MUSICA} no spotify {ICON SPOTIFY}
@@ -15,7 +16,8 @@ class HomePage extends StatelessWidget {
         var detailsPadding =
             constraints.maxWidth > 550 ? constraints.maxWidth * 0.2 : 30;
         var textOrientation =
-            constraints.maxWidth > 550 ? TextAlign.center : TextAlign.left;
+            constraints.maxWidth > 550 ? TextAlign.left : TextAlign.left;
+        var rowOrColumn = constraints.maxWidth > 1330 ? 2 : 1;
         return Container(
           height: constraints.maxHeight,
           child: SingleChildScrollView(
@@ -43,6 +45,15 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 TwitchxDeveloper(),
+                Container(
+                  height: 1000,
+                  width: constraints.maxWidth,
+                  padding: EdgeInsets.all(30),
+                  color: darkGrey,
+                  child: SocialMediaGrid(
+                    columns: rowOrColumn,
+                  ),
+                )
               ],
             ),
           ),

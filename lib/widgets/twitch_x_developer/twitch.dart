@@ -61,7 +61,7 @@ class Twitch extends StatelessWidget {
             Flexible(
               flex: 1,
               child: Padding(
-                padding: const EdgeInsets.only(top: 80.0),
+                padding: const EdgeInsets.only(top: 20.0),
                 child: Column(
                   children: [image],
                 ),

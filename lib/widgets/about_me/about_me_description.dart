@@ -38,6 +38,7 @@ class AboutMeDescription extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 30),
           child: RichText(
+            textAlign: orientation,
             text: TextSpan(children: [
               TextSpan(text: 'Meu foco tem sido ', style: lightText),
               TextSpan(text: 'Flutter', style: pinkText),

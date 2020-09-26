@@ -26,41 +26,33 @@ class TwitchxDeveloperState extends State<TwitchxDeveloper> {
       var height = constraints.maxHeight;
       var width = constraints.maxWidth;
 
+      var title = Padding(
+          padding: EdgeInsets.only(top: 30),
+          child: Text("Streamer x Desenvolvedora",
+              textAlign: TextAlign.center, style: titleTheme));
+
+      var slider = Transform.scale(
+          scale: 2,
+          child: Switch(
+              activeColor: pink,
+              activeTrackColor: darkGrey,
+              inactiveTrackColor: darkGrey,
+              value: showingTwitch,
+              onChanged: (value) {
+                setState(() {
+                  showingTwitch = value;
+                });
+              }));
       return AnimatedContainer(
           duration: duration,
           color: colors[showingTwitch],
           width: constraints.maxWidth,
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 70, vertical: 50),
-                      child: Text("Streamer x Desenvolvedora",
-                          textAlign: TextAlign.center, style: titleTheme),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 30, horizontal: 50),
-                    child: Transform.scale(
-                      scale: 2,
-                      child: Switch(
-                          activeColor: pink,
-                          activeTrackColor: darkGrey,
-                          inactiveTrackColor: darkGrey,
-                          value: showingTwitch,
-                          onChanged: (value) {
-                            setState(() {
-                              showingTwitch = value;
-                            });
-                          }),
-                    ),
-                  ),
-                ],
+              title,
+              Padding(
+                padding: const EdgeInsets.only(bottom: 15, top: 15),
+                child: slider,
               ),
               Text(
                 profiles[showingTwitch],
@@ -74,7 +66,10 @@ class TwitchxDeveloperState extends State<TwitchxDeveloper> {
                   parentHeight: height,
                   parentWidth: width,
                 ),
-                secondChild: Developer(),
+                secondChild: Developer(
+                  parentHeight: height,
+                  parentWidth: width,
+                ),
                 crossFadeState: showingTwitch
                     ? CrossFadeState.showFirst
                     : CrossFadeState.showSecond,

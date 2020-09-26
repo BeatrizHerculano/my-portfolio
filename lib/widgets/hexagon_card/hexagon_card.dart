@@ -16,7 +16,7 @@ class HexagonCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomPaint(
       key: UniqueKey(),
-      painter: ShadowPainter(this.shadow, this.clipper),
+      //painter: ShadowPainter(this.shadow, this.clipper),
       child: ClipPath(child: child, clipper: this.clipper),
     );
   }

@@ -9,23 +9,32 @@ class SocialMediaGrid extends StatelessWidget {
   final int columns;
   List<Widget> _getLinksSocialMedia(BuildContext context) {
     return socialMediaLinks.entries
-        .map((entry) => Anchor(
-            entry.value,
-            Text(
-              entry.key,
-              style: PinkTextTheme.of(context).headline6,
-            )))
+        .map((entry) => Container(
+              height: 100,
+              width: 200,
+              child: Anchor(
+                  entry.value,
+                  Text(
+                    entry.key,
+                    style: PinkTextTheme.of(context).headline6,
+                  )),
+            ))
         .toList();
   }
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: columns,
-      children: _getLinksSocialMedia(context),
-      childAspectRatio: 1.75,
-      crossAxisSpacing: 200,
-      mainAxisSpacing: 100,
-    );
+    if (columns > 1) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [..._getLinksSocialMedia(context)],
+      );
+    }
+    else{
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [..._getLinksSocialMedia(context)],
+      );
+    }
   }
 }
