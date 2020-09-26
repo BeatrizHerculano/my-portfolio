@@ -1,6 +1,6 @@
 const Map<String, String> socialMediaLinks = {
-  "Twitter": "https://twitter.com/BiaherOliveira",
-  "Twitch": "https://twitch.tv/biaher",
+  "Twitter": "https://twitter.com/biaherculanodev",
+  "Twitch": "https://twitch.tv/biaherculano",
   "Youtube":
       "https://www.youtube.com/channel/UC-ldVOqc3lRRTtdkXLCC9kw?view_as=subscriber",
   "GitHub": "https://github.com/beatrizherculano",
